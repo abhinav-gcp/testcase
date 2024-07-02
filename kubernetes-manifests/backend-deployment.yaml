@@ -1,0 +1,20 @@
+# kubernetes-manifests/backend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: asia-south2-docker.pkg.dev/amplified-asset-426508-e7/my-docker-repo/backend:latest
+        ports:
+        - containerPort: 3001
